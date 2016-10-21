@@ -25,20 +25,23 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li class="dropdown">
+                <li class="dropdown"  sec:authorize="hasAuthority('ADMIN')">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">User <span class="caret"></span></a>
-                    <ul class="dropdown-menu" sec:authorize="hasRole('ADMIN')">
+                    <ul class="dropdown-menu">
                         <li><a href="/user">Users</a></li>
-                        <li><a href="/user/"></a></li>
+                        <li><a href="/user/create">Create user</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Sign Out"/>
-                    </form>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/logout">Sign Out</a>
+                </li>
+                <li sec:authorize="isAnonymous()">
+                    <a href="/login">
+                        Login
+                    </a>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>User listing</title>
 
     <link href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
@@ -19,9 +19,9 @@
             <th>Is Enabled</th>
         </tr>
 
-        <tr th:each="user : ${user}">
+        <tr th:each="user : ${users}">
             <td th:text="${user.userName}"></td>
-            <td th:text="${user.enable}"></td>
+            <td th:text="${user.enabled}"></td>
         </tr>
     </table>
 </div>

@@ -19,8 +19,8 @@ public class ApplicationUser implements Serializable {
     @Id
     public String userName;
     public String password;
-    public boolean enable;
+    public boolean enabled;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     public Collection<UserRole> roles;
 }

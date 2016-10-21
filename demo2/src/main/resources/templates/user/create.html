@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+</head>
+<body>
+<div th:replace="layout/default :: header">&nbsp;</div>
+<div class="container">
+    <form action="post">
+        <div class="form-group">
+            <label for="userName">Email address</label>
+            <input type="email" class="form-control" name="userName" id="userName" placeholder="User Name">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password</label>
+            <input type="password" name="password" class="form-control" id="pwd" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="repwd">Password</label>
+            <input type="password" name="rePassword" class="form-control" id="repwd" placeholder="Password">
+        </div>
+    </form>
+</div>
+<div th:replace="layout/default :: js">&nbsp;</div>
+</body>
+</html>

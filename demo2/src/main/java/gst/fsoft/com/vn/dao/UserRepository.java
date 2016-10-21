@@ -1,6 +1,7 @@
 package gst.fsoft.com.vn.dao;
 
 import gst.fsoft.com.vn.model.ApplicationUser;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
