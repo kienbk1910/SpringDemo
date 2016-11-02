@@ -9,19 +9,25 @@
 <body>
 <div th:replace="layout/default :: header">&nbsp;</div>
 <div class="container">
-    <form action="post">
+    <h2>Create user</h2>
+    <div th:text="${message}"></div>
+    <form action="/user/create" method="post">
+        <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}" />
         <div class="form-group">
-            <label for="userName">Email address</label>
-            <input type="email" class="form-control" name="userName" id="userName" placeholder="User Name">
+            <label for="userName">User Name</label>
+            <input type="text" class="form-control" name="userName" id="userName" placeholder="User Name"/>
         </div>
         <div class="form-group">
             <label for="pwd">Password</label>
-            <input type="password" name="password" class="form-control" id="pwd" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="pwd" placeholder="Password"/>
         </div>
         <div class="form-group">
             <label for="repwd">Password</label>
-            <input type="password" name="rePassword" class="form-control" id="repwd" placeholder="Password">
+            <input type="password" name="retypePassword" class="form-control" id="repwd" placeholder="Retype Password"/>
         </div>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
 <div th:replace="layout/default :: js">&nbsp;</div>

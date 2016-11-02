@@ -12,16 +12,22 @@
 <div th:replace="layout/default :: header">&nbsp;</div>
 <div class="container">
     <h2>User listing</h2>
-    <hr/>
+    <span th:if="${message!=null}" th:text="${message}"></span>
+    <a href="/user/create" class="btn btn-default pull-right">Create user</a>
     <table class="table table-bordered table-striped">
         <tr>
             <th>User Name</th>
             <th>Is Enabled</th>
+            <th></th>
         </tr>
 
         <tr th:each="user : ${users}">
             <td th:text="${user.userName}"></td>
             <td th:text="${user.enabled}"></td>
+            <td>
+                <a th:href="@{|/user/delete/${user.userName}}|" class="btn btn-danger">Delete</a>
+                <a th:href="@{|/user/edit/${user.userName}}|" class="btn btn-default">Edit</a>
+            </td>
         </tr>
     </table>
 </div>

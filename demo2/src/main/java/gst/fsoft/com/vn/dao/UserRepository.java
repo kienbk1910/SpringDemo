@@ -9,4 +9,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface UserRepository extends PagingAndSortingRepository<ApplicationUser, String> {
 
+    @Query(value = "select * from application_user  where enabled= TRUE", nativeQuery = true)
+    Iterable<ApplicationUser> findAllUserEnabled();
+
+    Iterable<ApplicationUser> findByEnabled(boolean enabled);
+
 }
