@@ -11,6 +11,15 @@
 <body>
 <div th:replace="layout/default :: header">&nbsp;</div>
 <div class="container">
+    <script th:inline="javascript">
+
+        //<![CDATA[
+
+        var usersFromServerSide = /*[[${usersInJson}]]*/'User Name';
+
+        /*]]>*/
+
+    </script>
     <h2>User listing</h2>
     <span th:if="${message!=null}" th:text="${message}"></span>
     <a href="/user/create" class="btn btn-default pull-right">Create user</a>
@@ -30,6 +39,10 @@
             </td>
         </tr>
     </table>
+
+    <scirpt>
+        console.log(usersFromServerSide);
+    </scirpt>
 </div>
 <div th:replace="layout/default :: js">&nbsp;</div>
 </body>

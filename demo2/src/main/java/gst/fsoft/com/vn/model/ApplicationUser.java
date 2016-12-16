@@ -3,6 +3,8 @@ package gst.fsoft.com.vn.model;
 
 
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -18,10 +20,15 @@ public class ApplicationUser implements Serializable {
     }
 
     @Id
+    @Expose
     public String userName;
+
     public String password;
+
+    @Expose
     public boolean enabled;
 
+    @Expose
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     public Collection<UserRole> roles;
 }

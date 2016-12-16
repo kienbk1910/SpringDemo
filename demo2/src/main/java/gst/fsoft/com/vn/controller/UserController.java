@@ -1,5 +1,9 @@
 package gst.fsoft.com.vn.controller;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import gst.fsoft.com.vn.dao.UserRepository;
 import gst.fsoft.com.vn.dto.CreateUser;
 import gst.fsoft.com.vn.dto.DeleteUserModel;
@@ -36,6 +40,8 @@ public class UserController {
         Iterable<ApplicationUser> users = repository.findAll();
         modelAndView.addAttribute("users", users);
         modelAndView.addAttribute("message", message);
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        modelAndView.addAttribute("usersInJson", gson.toJson(users));
         return "user/index";
     }
 
